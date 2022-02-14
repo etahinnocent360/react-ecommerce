@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+.login-form{
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+	height: 70vh;
+	margin: 100px auto;
+	background-color: rgb(255, 255, 255);
+	border-radius: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+label{
+	display: flex;
+	width: 90%;
+	flex-direction: column;
+	margin:10px auto;
+}
+input{
+	height: 50px;
+	outline: none;
+	border: 3px solid rgb(212, 212, 212);
+}
+.button{
+	width: 50%;
+	margin: 30px auto;
+	height: 50px;
+	background-color: blue;
+	color: white;
+	outline: none;
+	border-radius: 10px;
+	font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-h2{
+	text-align: center;
+}
+.p-error{
+	color: red;
+	margin-left: 90px;
+	animation-name: fadeout;
+	animation-duration: 10s;
+	margin: 5px;
+	animation-iteration-count: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ui{
+	color: green;
+	height: 100px;
+	width: 160px;
+	background-color: rgb(207, 252, 224);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	margin-top: 100px;
+	margin-left: 45%;
 }
 
-.App-link {
-  color: #61dafb;
+.counter{
+	color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hoc{
+	color: white;
+}
+
+
+::-webkit-scrollbar-button {
+  height: 12px;
 }

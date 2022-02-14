@@ -1,0 +1,361 @@
+.container {
+  background-color: #ebe4f1;
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+}
+
+.container .dashnav {
+  height: 70px;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.container .dashnav .bars {
+  font-size: 30px;
+  margin-left: 40px;
+}
+
+.container .dashboard {
+  display: flex;
+  background-color: rgba(236, 236, 236, 0.575);
+  margin: 0 auto;
+  width: 99%;
+  flex-flow: row;
+  justify-content: space-around;
+  height: auto;
+  border-radius: 5px;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.container .dashboard .sidebar {
+  background-color: white;
+  width: 15%;
+  height: 100vh;
+  border-radius: 10px;
+  position: relative;
+}
+
+.container .dashboard .sidebar ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+}
+
+.container .dashboard .sidebar ul li {
+  list-style: none;
+  padding-top: 30px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.container .dashboard .sidebar ul li .icons {
+  color: blueviolet;
+}
+
+.container .dashboard .sidebar ul li .item {
+  position: absolute;
+  text-decoration: none;
+  margin-left: 5px;
+  color: #505050;
+}
+
+.container .dashboard .sidebar ul li :hover {
+  color: #4c318a;
+  transform: scale(1.1);
+}
+
+.container .dashboard .sidebar hr {
+  margin: 30px auto 10px auto;
+  width: 50%;
+}
+
+.container .dashboard ::-webkit-scrollbar {
+  width: 15px;
+}
+
+.container .dashboard ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.container .dashboard ::-webkit-scrollbar-thumb {
+  background: #9900ff;
+  border-radius: 10px;
+}
+
+.container .dashboard ::-webkit-scrollbar-thumb:hover {
+  background: #6200b3;
+}
+
+.container .dashboard .render {
+  width: 65%;
+  height: auto;
+  border-radius: 10px;
+  background-color: #ebe4f1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.container .dashboard .render .flex-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+}
+
+.container .dashboard .render .flex-2 .flex-boxes {
+  width: 48%;
+  background-color: white;
+  border-radius: 5px;
+  height: 330px;
+}
+
+.container .dashboard .render .cal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .dashboard .render .cal .calender {
+  background-color: white;
+  width: 100%;
+  height: 95vh;
+  border: none;
+  padding-top: 100px;
+  border-radius: 10px;
+}
+
+.container .dashboard .render .users {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  height: 107vh;
+}
+
+.container .dashboard .render .users table {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+.container .dashboard .render .users tr {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 3px solid #ebebeb;
+}
+
+.container .dashboard .render .users tr img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.container .dashboard .render .users tr td {
+  margin-top: 10px;
+  line-height: 2;
+  height: 50px;
+  color: #2c2c2c;
+}
+
+.container .dashboard .render .users tr td .danger {
+  color: red;
+  font-size: 15px;
+}
+
+.container .dashboard .render .users tr td .view-eye {
+  color: blueviolet;
+  font-size: 15px;
+}
+
+.container .dashboard .render .users th {
+  height: 40px;
+  line-height: 2;
+}
+
+.container .dashboard .render .content-profile {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 95vh;
+  align-items: center;
+}
+
+.container .dashboard .render .content-profile img {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+}
+
+.container .dashboard .render .content-profile .infor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .dashboard .render .content-profile .infor h3 {
+  margin-top: 10px;
+}
+
+.container .dashboard .right {
+  width: 18%;
+  height: 100vh;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.container .dashboard .right .admin-profile {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .dashboard .right .admin-profile .admin-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+
+.container .dashboard .create {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.container .dashboard .create .create-img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.container .dashboard .create .label {
+  width: 48%;
+}
+
+.container .dashboard .create .label input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid blueviolet;
+}
+
+.container .dashboard .create .label .btn-3 {
+  border: none;
+  color: blueviolet;
+  outline: none;
+}
+
+.container .dashboard .create .label [type="file"] {
+  background: blueviolet;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Rubik', sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-left: -40px;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+.container .dashboard .create .qty {
+  display: none;
+}
+
+.container .dashboard .create button {
+  height: 50px;
+  width: 130px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.container .dashboard .prod {
+  height: 100vh;
+}
+
+.container .dashboard .prod .product-cart {
+  width: 100%;
+}
+
+.container .dashboard .prod .product-cart table {
+  width: 100%;
+}
+
+.container .dashboard .prod .product-cart table td {
+  text-align: left;
+}
+
+.container .dashboard .prod .product-cart .cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  justify-content: space-between;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.container .dashboard .prod .product-cart .cart .icons {
+  padding-left: 10%;
+  font-size: 20px;
+}
+
+.container .dashboard .prod .product-cart .cart .edit {
+  color: green;
+}
+
+.container .dashboard .prod .product-cart .cart .danger {
+  color: red;
+}
+
+.container .dashboard .prod .product-cart .cart img {
+  height: 70px;
+  width: 70px;
+}
+
+@media (max-width: 800px) {
+  .container .dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+  .container .dashboard .sidebar {
+    width: 100%;
+    font-size: 25px;
+    height: auto;
+  }
+  .container .dashboard .render {
+    width: 100%;
+  }
+  .container .dashboard .right {
+    width: 100%;
+  }
+}
