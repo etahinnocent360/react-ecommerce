@@ -28,23 +28,23 @@
 	}
 
 	.prodGalary {
+		margin-top: 100px;
 		width          : 89%;
 		position       : relative;
 		display        : flex;
 		justify-content: space-evenly;
 		flex-wrap      : wrap;
-		height         : 100vh;
+		height         : 95vh;
 		overflow-y     : auto;
 
 
 		.cart {
+			margin-top: 10px;
 			height          : 60vh;
 			position        : relative;
 			width           : 23%;
-			margin-top      : 40px;
-			background-color: rgb(248, 248, 248);
-			// box-shadow: 1px 1px  rgba(0, 0, 0, 0.377);
-			box-shadow      : rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+			background-color: rgb(247, 247, 247);
+			box-shadow      : rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 6px 0px;
 			display         : flex;
 			color           : white;
 			border-radius   : 5px;
@@ -55,12 +55,15 @@
 				color         : black;
 				position      : absolute;
 				top           : 330px;
-				left          : 20%;
+				left          : 25%;
 			}
+				h3:hover{
+					border-bottom: 2px solid blueviolet;
+				}
 
 			h4 {
 				text-align: center;
-				
+
 			}
 
 			img {
@@ -76,7 +79,7 @@
 				height          : 41vh;
 				margin-top      : 200px;
 				display         : none;
-				z-index         : 1000;
+				z-index         : 10;
 				cursor          : pointer;
 				background-color: rgba(0, 0, 0, 0.253);
 
@@ -124,13 +127,13 @@
 
 	.sidebar {
 		width           : 20%;
-		height          : 100vh;
+		height          : 45vh;
 		background-color: rgb(255, 255, 255);
-		overflow-y: auto;
+		overflow-y      : auto;
+		margin-top: 70px;
 
 		h4 {
-			font-family: 'Cormorant Garamond', serif;
-			font-family: 'Quintessential', cursive;
+			
 		}
 
 		h5 {
@@ -140,7 +143,7 @@
 		.cart {
 			display      : flex;
 			margin-top   : 10px;
-			border       : 3px solid rgb(212, 212, 212);
+			border       : 3px solid rgb(236, 236, 236);
 			border-radius: 5px;
 
 			img {
@@ -155,9 +158,11 @@
 		}
 	}
 }
-.cart-all{
-	height: 100vh;
-	overflow-y: hidden;
+
+.cart-all {
+	height    : 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .cart-items {
@@ -165,12 +170,14 @@
 	height          : 100vh;
 	width           : 100%;
 	background-color: #FFF;
-
-
+	margin-top: 100px;
 
 	table {
 		width           : 80%;
 		background-color: rgb(235, 228, 241);
+		height          : 100vh;
+		overflow-y      : hidden;
+
 		thead {
 			border-bottom: 2px solid grey;
 
@@ -255,7 +262,7 @@
 		}
 
 		th {
-			height     : 40px;
+			height     : 53px;
 			line-height: 2;
 			font-size  : 25px;
 		}
@@ -265,7 +272,70 @@
 	.leftSide {
 		width           : 20%;
 		height          : 100vh;
-		background-color: rgb(235, 228, 241);
+		background-color: rgb(250, 247, 253);
+
+		.summary {
+			margin-top : 25px;
+			margin-left: 20px;
+			color      : rgb(184, 184, 184);
+		}
+
+		hr {
+			color: gray;
+			width: 90%;
+			margin-left: 20px;
+		}
+
+		.flex-items {
+			display        : flex;
+			justify-content: space-between;
+		}
+
+		.right {
+			margin-right: 20px;
+		}
+
+		h4 {
+			margin-left: 20px;
+			margin-top : 30px;
+			color      : rgb(184, 184, 184);
+		}
+
+		input {
+			// margin-top: 25px;
+			width        : 90%;
+			margin       : 35px 20px;
+			border       : none;
+			border-radius: 5px;
+		}
+
+		.apply {
+			margin-bottom   : 30px;
+			height          : 50px;
+			width           : 100px;
+			background-color: #f84a4a;
+			border          : none;
+			color           : white;
+			margin-left     : 20px;
+			cursor: pointer;
+		}
+
+		.total-flex {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.check-out{
+			margin-top: 30px;
+			margin-left: 20px;
+			width: 245px;
+			height: 37px;
+			color: white;
+			background-color: blueviolet;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+		}
 	}
 
 }

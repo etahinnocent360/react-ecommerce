@@ -17,12 +17,13 @@ import AllProds from './components/dasboard/dashboardcomponents/AllProds';
 import Cart from './components/Cart';
 import ProductStore from './components/ProductStore';
 import Navbar from './Navbar';
+import Details from './components/Details';
 function App({location}) {
   return (
     <div className="App">
       {/* {location.pathname !=="/dashboard" && <Navbar/>} */}
   <BrowserRouter>
-  {/* <Navbar/> */}
+  <Navbar/>
   <Routes>
       <Route exact path="/dashboard/" element={<CreateProducts/>} >.
      <Route path="/dashboard/settings" element={<Settings/>} />
@@ -35,12 +36,11 @@ function App({location}) {
      <Route path="/dashboard/create" element={<NewProd/>} />
      <Route path="/dashboard/products" element={<AllProds/>} />
     </Route>
-      {/* <Navbar/> */}
     <Route path="/" element = { <Home/>} />
     <Route path="/cart" element={<Cart/>} />
     <Route path="/store" element={<ProductStore/>}/>
     <Route path="/login" element = {<UsersAuth/>} />
-
+    <Route path="/detail/:id" element={<Details/>}/>
   </Routes>
   </BrowserRouter>
     </div>

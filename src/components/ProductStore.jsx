@@ -5,6 +5,7 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   onSnapshot,
   query,
   setDoc,
@@ -16,6 +17,9 @@ import "./Store.css";
 import List from "react-virtualized/dist/commonjs/List";
 import { CartContext } from "./pages/prodcontext/CartProvider";
 import { FaCartPlus, FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+ 
+
 function ProductStore() {
   const [products, setProducts] = useContext(ProdContext);
   const [carts, setCarts] = useContext(CartContext);
@@ -52,10 +56,13 @@ function ProductStore() {
     await addDoc(collection(fireDb, `cart`), item, { merge: true, item: item });
   };
 
+
+
+
   return (
     <div className="store">
       <div className="prodGalary">
-        {products.map((product) => (
+        {products.map((product, id) => (
           <div key={product.id} className="cart">
             <img src={product.url} alt="nothing to show" />
             <h3>Name: {product.pName}</h3>
@@ -68,7 +75,8 @@ function ProductStore() {
                   onClick={() => addtocart(product)}
                   className="add"
                 />
-                <FaEye className="view" />
+                
+                <Link to={`/detail/${product.id}`}><FaEye className="view" /></Link>
               </div>
             </div>
           </div>

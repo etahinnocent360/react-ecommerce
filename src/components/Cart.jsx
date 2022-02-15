@@ -54,6 +54,7 @@ function Cart() {
     await updateDoc(cartRef, newQuantitty);
   };
 
+
   function total() {
     let x = 0;
     carts.map((i) => {
@@ -65,61 +66,76 @@ function Cart() {
 
   return (
     <div className="cart-all">
-    <div className="cart-items">
-      <table>
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>quantity</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {carts.map((cart, index) => (
-            <tr key={cart.id} className="flex">
-              <td>{index + 1}</td>
-              <td className="descImg">
-                <img src={cart.url} alt="nothing to show" />
-                <h5>{cart.desc} </h5>
-              </td>
-              <td>{cart.pName}</td>
-              <td>${cart.price}</td>
-              <td className="price">
-                <FiMinus
-                  onClick={() => {
-                    decreaseCart(cart.id, cart.quantity);
-                  }}
-                  className=""
-                />
-                <div> {cart.quantity}</div>
-                <FiPlus
-                  onClick={() => {
-                    increaseCart(cart.id, cart.quantity);
-                  }}
-                />
-              </td>
-              <td>
-                <FiTrash
-                  className="remove"
-                  onClick={() => handleDelete(cart.id)}
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="leftSide">
-        <h2 className="summary">Order Summary</h2>
-        <div className="flex-items">
-         <h4>items{carts.length}</h4>
-         <h4>${total()}</h4>
+      <div className="cart-items">
+        <div className="top">
+          <h5>Shopping cart</h5>
+          <h5>{carts.length} items</h5>
         </div>
-        <h3>Shipping</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {carts.map((cart, index) => (
+              <tr key={cart.id} className="flex">
+                <td>{index + 1}</td>
+                <td className="descImg">
+                  <img src={cart.url} alt="nothing to show" />
+                  <h5>{cart.desc} </h5>
+                </td>
+                <td>{cart.pName}</td>
+                <td>${cart.price}</td>
+                <td className="price">
+                  <FiMinus
+                    onClick={() => {
+                      decreaseCart(cart.id, cart.quantity);
+                    }}
+                    className=""
+                  />
+                  <div> {cart.quantity}</div>
+                  <FiPlus
+                    onClick={() => {
+                      increaseCart(cart.id, cart.quantity);
+                    }}
+                  />
+                </td>
+                <td>
+                  <FiTrash
+                    className="remove"
+                    onClick={() => handleDelete(cart.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="leftSide">
+          <h2 className="summary">Order Summary</h2>
+          <hr />
+          <div className="flex-items">
+            <h4 className="left">Items{carts.length}</h4>
+            <h4 className="right">${total()}</h4>
+          </div>
+          <h4 className="left shipping">Shipping</h4>
+          <input type="number" placeholder="standard shipping $50" />
+          <h4 className="promo">Prom</h4>
+          <input type="number" placeholder="promo code here" />
+          <button className="apply">Apply</button>
+          <hr />
+          <div className="total-flex">
+            <h4>Total cost</h4>
+            <h4 className="right">${total()}</h4>
+          </div>
+          <button className="check-out">Check out</button>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

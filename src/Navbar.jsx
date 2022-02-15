@@ -24,14 +24,32 @@ function Navbar(props) {
 
   return (
     <div className='navBar'>
-	    <h4><BsCart2/><h6>{carts.length}</h6></h4>
       <ul>
 	      <li>
-		      <Link to={"/dashboard"}>
+		      <Link to={"/dashboard"} className='link'>
 			      dashboard
 		      </Link>
 	      </li>
+        <li>
+		      <Link to={"/store"} className='link'>
+			      Store
+		      </Link>
+	      </li>
+        <li>
+		      <Link to={"/about"} className='link'>
+			      About
+		      </Link>
+	      </li>
+        <li>
+		      <Link to={"/settings"} className='link'>
+			      Profile
+		      </Link>
+	      </li>
       </ul>
+      <Link to={"/cart"} className='link'>
+        <h4 className='flex-cart'><BsCart2/><h6 className='red'>{carts.length}</h6></h4>
+      </Link>
+	    
     </div>
   );
 }
