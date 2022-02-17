@@ -57,7 +57,7 @@
 					font-weight    : 700;
 
 					.icons {
-						color: blueviolet;
+						color: #5475e5;
 					}
 
 					.item {
@@ -94,13 +94,13 @@
 
 		/* Handle */
 		::-webkit-scrollbar-thumb {
-			background   : rgb(153, 0, 255);
+			background   : #5475e5;
 			border-radius: 10px;
 		}
 
 		/* Handle on hover */
 		::-webkit-scrollbar-thumb:hover {
-			background: #6200b3;
+			background: #5475e5;
 		}
 
 		.render {
@@ -148,7 +148,7 @@
 				width           : 100%;
 				border-radius   : 10px;
 				background-color: white;
-				height          : 107vh;
+				height          : 100vh;
 
 				table {
 					width           : 100%;
@@ -156,7 +156,7 @@
 					overflow-x      : hidden;
 					background-color: white;
 				}
-
+				
 				tr {
 					display        : flex;
 					width          : 100%;
@@ -172,8 +172,9 @@
 
 					td {
 						margin-top : 10px;
-						line-height: 2;
-						height     : 50px;
+						line-height: 4;
+						height     : 80px;
+						border-collapse: collapse;
 						color      : rgb(44, 44, 44);
 
 
@@ -183,7 +184,7 @@
 						}
 
 						.view-eye {
-							color    : blueviolet;
+							color    : #5475e5;
 							font-size: 15px;
 						}
 					}
@@ -266,17 +267,17 @@
 				input {
 					width        : 100%;
 					border       : none;
-					border-bottom: 2px solid blueviolet;
+					border-bottom: 2px solid #5475e5;
 				}
 
 				.btn-3 {
 					border : none;
-					color  : blueviolet;
+					color  : #5475e5;
 					outline: none;
 				}
 
 				[type="file"] {
-					background    : blueviolet;
+					background    : #5475e5;
 					border        : none;
 					border-radius : 5px;
 					color         : #fff;
@@ -306,7 +307,7 @@
 			button {
 				height          : 50px;
 				width           : 130px;
-				background-color: blueviolet;
+				background-color: #5475e5;
 				color           : white;
 				border          : none;
 				border-radius   : 6px;
@@ -350,6 +351,9 @@
 
 					.danger {
 						color: red;
+					}
+					.nums{
+						color: #5475e5;
 					}
 
 					img {

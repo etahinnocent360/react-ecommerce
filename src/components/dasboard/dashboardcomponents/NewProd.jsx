@@ -14,6 +14,8 @@ function NewProd() {
   const [price, setPrice] = useState();
   const [stock, setStock] = useState();
   const [desc, setDesc] = useState("");
+  const [like, setLike] = useState(0)
+  const [dislike, setDisLike] = useState(0)
   const [quantity, setQuantity] = useState(1)
   let [img, setImg] = useState();
   const [progress, setProgress] = useState(0);
@@ -53,7 +55,9 @@ function NewProd() {
       price: price,
       stock: stock,
       desc: desc,
-      quantity:quantity
+      quantity:quantity,
+      like:like,
+      dislike:dislike
     });
         })
     );

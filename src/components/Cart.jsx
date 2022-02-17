@@ -68,9 +68,10 @@ function Cart() {
     <div className="cart-all">
       <div className="cart-items">
         <div className="top">
-          <h5>Shopping cart</h5>
+          <h5>Cart</h5>
           <h5>{carts.length} items</h5>
         </div>
+        <div className="table">
         <table>
           <thead>
             <tr>
@@ -85,13 +86,13 @@ function Cart() {
           <tbody>
             {carts.map((cart, index) => (
               <tr key={cart.id} className="flex">
-                <td>{index + 1}</td>
+                <td className="nums">{index + 1}</td>
                 <td className="descImg">
                   <img src={cart.url} alt="nothing to show" />
                   <h5>{cart.desc} </h5>
                 </td>
                 <td>{cart.pName}</td>
-                <td>${cart.price}</td>
+                <td className="nums">${cart.price}</td>
                 <td className="price">
                   <FiMinus
                     onClick={() => {
@@ -116,6 +117,7 @@ function Cart() {
             ))}
           </tbody>
         </table>
+        </div>
         <div className="leftSide">
           <h2 className="summary">Order Summary</h2>
           <hr />

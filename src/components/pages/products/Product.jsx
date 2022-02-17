@@ -41,6 +41,8 @@ const Product = () => {
           quantity={product.quantity}
           handleDelete={handleDelete}
           product={product}
+          like={product.like}
+          dislike={product.dislike}
           key={product.id}
         />
       ))}

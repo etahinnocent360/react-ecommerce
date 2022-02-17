@@ -1,11 +1,40 @@
-import { doc, getDoc } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
+  doc,
+  getDoc,
+  collection,
+  query,
+  onSnapshot,
+  updateDoc,
+  increment,
+} from "firebase/firestore";
+import React, { useState, useEffect, useContext } from "react";
 import { fireDb } from "../firebase/firebaseconfig";
 import { useParams } from "react-router";
-import "./Detail.css"
+import { FaThumbsDown } from "react-icons/fa";
+import { FcLike } from "react-icons/fc";
+import "./Detail.css";
+import ReactStars from "react-rating-stars-component";
+import { ProdContext } from "./pages/prodcontext/ProductContext";
+import { IoIosAdd, IoIosRemove } from "react-icons/io";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
 function Details() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  let [products, setProducts] = useContext(ProdContext);
+  useEffect(() => {
+    const q = query(collection(fireDb, "products"));
+    const unSub = onSnapshot(q, (QuerySnapshot) => {
+      let productArray = [];
+      QuerySnapshot.forEach((doc) => {
+        productArray.push({ ...doc.data(), id: doc.id });
+      });
+      setProducts(productArray);
+    });
+    return () => unSub();
+  }, [doc]);
 
   useEffect(() => {
     getDoc(doc(fireDb, `products`, id)).then((snapshot) => {
@@ -17,20 +46,61 @@ function Details() {
     });
   }, [id]);
 
-  console.log(product);
+  const createLike = async () => {
+    const likeRef = doc(fireDb, "products", id);
+    await updateDoc(likeRef, {
+      like: increment(1),
+    });
+  };
+
+  const disLike = async () => {
+    const dislikeRef = doc(fireDb, "products", id);
+    await updateDoc(dislikeRef, {
+      dislike: increment(1),
+    });
+  };
 
   return (
     <div className="grey">
-      <div className="product">
-       <div className="img">
+      <div className="product" key={product.id}>
+        <div className="img">
           <img src={product.url} alt="no pic found" />
-       </div>
+        </div>
         <div className="text">
-          <h3>{product.pName} </h3>
-        <h3>{product.price} </h3>
-        <h3>{product.stock} </h3>
-        <h3>{product.desc} </h3>
-        <h3>{id}</h3>
+          <div className="flex-text">
+            <div className="top">
+              <h3>{product.pName} </h3>
+              <ReactStars size={40} />
+              <h3 className="price">${product.price} </h3>
+              <h3>{product.desc} </h3>
+            </div>
+            <hr />
+            <div className="absolute"></div>
+            <div className="bottom">
+              <div className="qty">
+                <h2>QTY</h2>
+                <div className="number">
+                  <IoIosRemove /> {product.quantity}
+                  <IoIosAdd />
+                </div>
+              </div>
+              <div className="but-like">
+                <div className="like">
+                  <FcLike
+                    onClick={() => {
+                      createLike();
+                    }}
+                  />
+                  <div className="up">{product.like}</div>
+                </div>
+                <div className="dislike">
+                  <FaThumbsDown onClick={() => disLike()} />
+                  <div className="up right">{product.dislike}</div>
+                </div>
+              </div>
+           <Link to={"/store"}><button><AiOutlineArrowLeft className="left"/>Back to store </button></Link> 
+            </div>
+          </div>
         </div>
       </div>
     </div>

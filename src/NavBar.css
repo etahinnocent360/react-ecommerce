@@ -22,6 +22,9 @@
 
 .navBar .link {
   text-decoration: none;
+  color: #5475e5;
+  text-transform: capitalize;
+  font-size: 20px;
 }
 
 .navBar .flex-cart {
@@ -34,12 +37,12 @@
   width: 50px;
   align-items: center;
   justify-content: center;
-  color: rgba(78, 23, 230, 0.76);
+  color: #5475e5;
 }
 
 .navBar .flex-cart .red {
   margin-top: -25px;
-  color: #4e17e6;
+  color: #9933dd;
   text-decoration: none;
   list-style: none;
 }

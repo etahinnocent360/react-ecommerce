@@ -7,16 +7,116 @@
 
 .product {
   display: flex;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
-  height: 90vh;
+  height: 80vh;
   position: relative;
   margin-top: 0px;
   background-color: white;
   border-radius: 10px;
 }
 
-.product img {
-  height: 90vh;
+.product .img {
+  height: 80vh;
+  width: 50%;
   border-bottom-left-radius: 10px;
+}
+
+.product .img img {
+  height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.product .rating {
+  font-size: 40px;
+}
+
+.product .text {
+  width: 50%;
+}
+
+.product .text .flex-text {
+  margin-left: 50px;
+}
+
+.product .text hr {
+  width: 60%;
+}
+
+.product .text .absolute {
+  height: 50%;
+  width: 26%;
+  left: 76%;
+  top: 20%;
+  position: absolute;
+  background-color: #d6dcf1;
+  border-radius: 50%;
+}
+
+.product .text .top h3 {
+  margin-top: 30px;
+}
+
+.product .text .top .price {
+  color: #5475e5;
+}
+
+.product .text .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  height: 40px;
+  width: 100px;
+  margin-top: 30px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 1px 1px 0px, rgba(14, 30, 37, 0.32) 0px 1px 1px 0px;
+}
+
+.product .text .but-like {
+  display: flex;
+  margin-top: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.product .text .but-like .like {
+  font-size: 40px;
+}
+
+.product .text .but-like .dislike {
+  font-size: 40px;
+  color: #5475e5;
+  margin-left: 30px;
+}
+
+.product .text .but-like .up {
+  position: absolute;
+  color: #5475e5;
+  top: -13%;
+  font-size: 25px;
+  left: 6%;
+}
+
+.product .text .but-like .right {
+  left: 21.5%;
+  top: -25%;
+  color: #f05252;
+}
+
+.product .text button {
+  position: absolute;
+  display: block;
+  top: 80%;
+  width: 30%;
+  border: 2px solid #5475e5;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #ebe4f1;
+}
+
+.product .text button .left {
+  margin-left: -70%;
+  width: 70%;
 }

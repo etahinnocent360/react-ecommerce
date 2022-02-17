@@ -7,6 +7,7 @@
 	align-items: center;
 	height: 80px;
 	background-color: white;
+	// background-color: #d9eaeb;
 	box-shadow      : rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 	display: flex;
 	ul{
@@ -20,6 +21,9 @@
 	}
 	.link{
 		text-decoration: none;
+		color: #5475e5;
+		text-transform: capitalize;
+		font-size: 20px;
 	}
 	.flex-cart{
 		display: flex;
@@ -31,11 +35,11 @@
 		width: 50px;
 		align-items: center;
 		justify-content: center;
-		color: rgba(78, 23, 230, 0.76);
+		color: #5475e5;
 		
 		.red{
 			margin-top: -25px;
-			color: rgb(78, 23, 230);
+			color: #9933dd;
 			text-decoration: none;
 			list-style: none;
 		}

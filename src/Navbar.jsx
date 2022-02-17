@@ -26,8 +26,8 @@ function Navbar(props) {
     <div className='navBar'>
       <ul>
 	      <li>
-		      <Link to={"/dashboard"} className='link'>
-			      dashboard
+		      <Link to={"/"} className='link'>
+			      Home
 		      </Link>
 	      </li>
         <li>
@@ -46,6 +46,9 @@ function Navbar(props) {
 		      </Link>
 	      </li>
       </ul>
+      <Link to={"/dashboard/profile"} className='link'>
+			    Admin
+		      </Link>
       <Link to={"/cart"} className='link'>
         <h4 className='flex-cart'><BsCart2/><h6 className='red'>{carts.length}</h6></h4>
       </Link>

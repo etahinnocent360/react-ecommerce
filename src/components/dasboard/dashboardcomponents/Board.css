@@ -58,7 +58,7 @@
 }
 
 .container .dashboard .sidebar ul li .icons {
-  color: blueviolet;
+  color: #5475e5;
 }
 
 .container .dashboard .sidebar ul li .item {
@@ -88,12 +88,12 @@
 }
 
 .container .dashboard ::-webkit-scrollbar-thumb {
-  background: #9900ff;
+  background: #5475e5;
   border-radius: 10px;
 }
 
 .container .dashboard ::-webkit-scrollbar-thumb:hover {
-  background: #6200b3;
+  background: #5475e5;
 }
 
 .container .dashboard .render {
@@ -141,7 +141,7 @@
   width: 100%;
   border-radius: 10px;
   background-color: white;
-  height: 107vh;
+  height: 100vh;
 }
 
 .container .dashboard .render .users table {
@@ -166,8 +166,9 @@
 
 .container .dashboard .render .users tr td {
   margin-top: 10px;
-  line-height: 2;
-  height: 50px;
+  line-height: 4;
+  height: 80px;
+  border-collapse: collapse;
   color: #2c2c2c;
 }
 
@@ -177,7 +178,7 @@
 }
 
 .container .dashboard .render .users tr td .view-eye {
-  color: blueviolet;
+  color: #5475e5;
   font-size: 15px;
 }
 
@@ -255,17 +256,17 @@
 .container .dashboard .create .label input {
   width: 100%;
   border: none;
-  border-bottom: 2px solid blueviolet;
+  border-bottom: 2px solid #5475e5;
 }
 
 .container .dashboard .create .label .btn-3 {
   border: none;
-  color: blueviolet;
+  color: #5475e5;
   outline: none;
 }
 
 .container .dashboard .create .label [type="file"] {
-  background: blueviolet;
+  background: #5475e5;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -290,7 +291,7 @@
 .container .dashboard .create button {
   height: 50px;
   width: 130px;
-  background-color: blueviolet;
+  background-color: #5475e5;
   color: white;
   border: none;
   border-radius: 6px;
@@ -334,6 +335,10 @@
 
 .container .dashboard .prod .product-cart .cart .danger {
   color: red;
+}
+
+.container .dashboard .prod .product-cart .cart .nums {
+  color: #5475e5;
 }
 
 .container .dashboard .prod .product-cart .cart img {
