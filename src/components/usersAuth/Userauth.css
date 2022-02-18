@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Cormorant+Garamond:ital@1&family=Quintessential&family=Source+Serif+Pro:wght@300;400&display=swap");
+.absolute {
+  height: 700px;
+  width: 700px;
+  border-radius: 50%;
+  z-index: -1;
+  left: 55%;
+  top: 5%;
+  background-color: #5476e50e;
+  position: absolute;
+}
+
+.login {
+  margin-top: 0;
+  height: 100vh;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.login .form-div {
+  height: 80vh;
+  width: 70%;
+  background-color: #f7f3fa;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+}
+
+.login .form-div .left {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  background-image: url("../../../public/img/wow.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.login .form-div .left .form {
+  height: 80%;
+  width: 85%;
+  background-color: #f7f3fa;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login .form-div .left .form h3 {
+  color: #5475e5;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.login .form-div .left .form input {
+  width: 90%;
+  height: 40px;
+  margin: 40px auto;
+  border-radius: 50px;
+  border: 2px solid #e6e6e6;
+  background-color: #f7f3fa;
+  outline: none;
+}
+
+.login .form-div .left .form input:focus {
+  width: 90%;
+  border: 3px solid #5475e5;
+  background-color: #f7f3fa;
+}
+
+.login .form-div .left .form .flex-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.login .form-div .left .form .flex-buttons button {
+  width: 40%;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  border: 3px solid #5475e5;
+  cursor: pointer;
+  outline: none;
+  cursor: pointer;
+}
+
+.login .form-div .left .form .flex {
+  color: #5475e5;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  border: none;
+}
+
+.login .form-div .left .form .flex button {
+  border: none;
+  font-size: 18px;
+  color: #5475e5;
+  background-color: #f7f3fa;
+  border-bottom: 2px solid #5475e5;
+  cursor: pointer;
+}
+
+.login .form-div .left .form .flex .link {
+  text-decoration: none;
+  color: #5475e5;
+  border-bottom: 2px solid #5475e5;
+}
+
+.login .form-div .right {
+  width: 60%;
+  height: 100%;
+  background-color: #5475e5;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.login .form-div .right h2 {
+  position: absolute;
+  font-family: 'Cookie', cursive;
+  font-size: 50px;
+  top: 45%;
+  width: 70%;
+  left: 55%;
+  color: white;
+}
+
+.login .form-div .right h2 span {
+  display: block;
+}
+
+.register {
+  margin-top: 0;
+  height: 100vh;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.register .form-div {
+  height: 80vh;
+  width: 70%;
+  background-color: #f7f3fa;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+}
+
+.register .form-div .left {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  background-image: url("../../../public/img/wow.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.register .form-div .left .form {
+  height: 80%;
+  width: 85%;
+  background-color: #f7f3fa;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register .form-div .left .form h3 {
+  color: #5475e5;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.register .form-div .left .form input {
+  width: 90%;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 50px;
+  border: 2px solid #e6e6e6;
+  background-color: #f7f3fa;
+  outline: none;
+}
+
+.register .form-div .left .form input:focus {
+  width: 90%;
+  border: 3px solid #5475e5;
+  background-color: #f7f3fa;
+}
+
+.register .form-div .left .form .flex-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.register .form-div .left .form .flex-buttons button {
+  width: 40%;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  border: 3px solid #5475e5;
+  cursor: pointer;
+  outline: none;
+  cursor: pointer;
+}
+
+.register .form-div .left .form .flex {
+  color: #5475e5;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  border: none;
+}
+
+.register .form-div .left .form .flex button {
+  border: none;
+  font-size: 18px;
+  color: #5475e5;
+  background-color: #f7f3fa;
+  border-bottom: 2px solid #5475e5;
+  cursor: pointer;
+}
+
+.register .form-div .left .form .flex .link {
+  text-decoration: none;
+  color: #5475e5;
+  border-bottom: 2px solid #5475e5;
+}
+
+.register .form-div .right {
+  width: 60%;
+  height: 100%;
+  background-color: #5475e5;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.register .form-div .right h2 {
+  position: absolute;
+  font-family: 'Cookie', cursive;
+  font-size: 50px;
+  top: 45%;
+  width: 70%;
+  left: 55%;
+  color: white;
+}
+
+.register .form-div .right h2 span {
+  display: block;
+}

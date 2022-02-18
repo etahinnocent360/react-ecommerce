@@ -9,6 +9,9 @@
 body{
   background-color: rgb(235, 228, 241);
   overflow-x: hidden;
+  font-family: 'Cormorant Garamond', serif;
+font-family: 'Quintessential', cursive;
+font-family: 'Source Serif Pro', serif;
 
 }
 ::-webkit-scrollbar {
@@ -31,3 +34,5 @@ body{
 		::-webkit-scrollbar-thumb:hover {
 			background: #5475e5;
 		}
+
+		

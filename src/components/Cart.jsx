@@ -89,7 +89,7 @@ function Cart() {
                 <td className="nums">{index + 1}</td>
                 <td className="descImg">
                   <img src={cart.url} alt="nothing to show" />
-                  <h5>{cart.desc} </h5>
+                  {/* <h5>{cart.desc} </h5> */}
                 </td>
                 <td>{cart.pName}</td>
                 <td className="nums">${cart.price}</td>
@@ -98,18 +98,18 @@ function Cart() {
                     onClick={() => {
                       decreaseCart(cart.id, cart.quantity);
                     }}
-                    className=""
+                    className="qty"
                   />
                   <div> {cart.quantity}</div>
                   <FiPlus
                     onClick={() => {
                       increaseCart(cart.id, cart.quantity);
                     }}
-                  />
+                  className="qty"/>
                 </td>
                 <td>
                   <FiTrash
-                    className="remove"
+                    className="trash"
                     onClick={() => handleDelete(cart.id)}
                   />
                 </td>

@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import './Userauth.css'
 
 function UsersAuth() {
 const initialValues = {};
@@ -38,62 +40,35 @@ const initialValues = {};
       errors.password = "password must be at least 7 characters long";
     }
 else{
-    // window.location.replace("/")
 }
     return errors;
   };
 
 
   return (
-    <div>
-      {Object.keys(formError).length === 0 && isSubmit ? (
-        <div className="ui success">logged in successfully</div>
-      ) : (
-        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-      )}
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="login-h2">Login form</h2>
-        <div className="field">
-          <label>
-            User name:
-            <input
-              type="text"
-              placeholder="user name"
-              value={formValues.userName}
-              onChange={handleChange}
-              name="userName"
-            />
-          </label>
-          <p className="p-error">{formError.userName}</p>
+    <div className='login'>
+      <div className="absolute">
+      </div>
+    <div className="form-div">
+      <div className="left">
+      <form className='form'>
+        <h3>Login</h3>
+        <input type="email" placeholder='email'/>
+        <input type="password" placeholder='password' />
+       <div className="flex-buttons">
+          <button>Login</button>
+        <button className="google">Login with google</button>
+       </div>
+        <div className="flex">
+          <Link to={'/register'} className='link'>Register</Link>
+        <button className='password-reset'>Forgot password?</button>
         </div>
-        <div className="field">
-          <label>
-            Email:
-            <input
-              type="text"
-              placeholder="email"
-              value={formValues.email}
-              onChange={handleChange}
-              name="email"
-            />
-          </label>
-          <p className="p-error">{formError.email}</p>
-        </div>
-        <div className="field">
-          <label>
-            Password:
-            <input
-              type="password"
-              placeholder="password"
-              value={formValues.password}
-              onChange={handleChange}
-              name="password"
-            />
-          </label>
-          <p className="p-error">{formError.password}</p>
-        </div>
-        <button type="submit" className="button">Login</button>
       </form>
+      </div>
+      <div className="right">
+        <h2>Ready to start? <span>join now and experience more</span></h2>
+      </div>
+    </div>
     </div>
   );
 }

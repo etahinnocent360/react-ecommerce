@@ -174,7 +174,6 @@
 						margin-top : 10px;
 						line-height: 4;
 						height     : 80px;
-						border-collapse: collapse;
 						color      : rgb(44, 44, 44);
 
 
@@ -327,6 +326,8 @@
 					width: 100%;
 					td{
 						text-align: left;
+						// border: 2px solid black;
+						width: 15%;
 					}
 				}
 
@@ -342,7 +343,8 @@
 
 					.icons {
 						padding-left: 10%;
-						font-size   : 20px;
+						font-size   : 30px;
+						cursor: pointer;
 					}
 
 					.edit {

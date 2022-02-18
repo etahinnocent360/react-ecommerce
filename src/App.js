@@ -18,6 +18,9 @@ import Cart from './components/Cart';
 import ProductStore from './components/ProductStore';
 import Navbar from './Navbar';
 import Details from './components/Details';
+import Register from './components/usersAuth/Register';
+import AdminRegister from './components/adminAuth/AdminRegister';
+import AdminLogin from './components/adminAuth/AdminLogin';
 function App({location}) {
   return (
     <div className="App">
@@ -41,6 +44,9 @@ function App({location}) {
     <Route path="/store" element={<ProductStore/>}/>
     <Route path="/login" element = {<UsersAuth/>} />
     <Route path="/detail/:id" element={<Details/>}/>
+    <Route path="/register" element={<Register/>}/>
+    <Route path="/admin-login" element={<AdminLogin/>}/>
+    <Route path="/admin-register" element={<AdminRegister/>}/>
   </Routes>
   </BrowserRouter>
     </div>

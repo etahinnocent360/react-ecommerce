@@ -25,18 +25,18 @@ function Products({
           </td>
 
           <td>
-            <h3>{pName} </h3>
+            {pName}
+          </td>
+
+          <td className="nums">
+            {price}
           </td>
 
           <td>
-            <h3 className="nums">{price} </h3>
+          {desc} 
           </td>
-
-          <td>
-            <h3>{desc} </h3>
-          </td>
-          <td>
-            <h3 className="nums">{stock} </h3>
+          <td className="nums">
+            {stock} 
           </td>
           <td>
             <FaRegEdit className="icons edit" />

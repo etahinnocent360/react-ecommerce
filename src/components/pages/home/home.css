@@ -106,6 +106,12 @@
   margin-left: -7%;
 }
 
+.home .top .right-side .type {
+  font-size: 25px;
+  color: #5475e5;
+  width: 55%;
+}
+
 .home .home-slice {
   display: flex;
   flex-wrap: wrap;
@@ -165,7 +171,7 @@
 
 .home .home-slice .flex-5 .all .reactions {
   display: flex;
-  margin-top: 95%;
+  margin-top: 85%;
   margin-left: 30%;
   font-size: 30px;
 }

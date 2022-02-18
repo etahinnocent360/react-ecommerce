@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { FaThumbsDown } from "react-icons/fa";
+import TypewriterComponent from "typewriter-effect";
 
 function Home() {
   const [products, setProducts] = useContext(ProdContext);
@@ -27,7 +28,8 @@ function Home() {
 
   return (
     <div className="home-main">
-      <div className="absolute"></div>
+      <div className="absolute">
+      </div>
       <div className="home">
         <div className="top">
           <div className="left-side">
@@ -51,6 +53,24 @@ function Home() {
           <div className="right-side">
             <img src="img/boy3.png" alt="" />
             <img className="girl" src="img/kid3.jpg" alt="" />
+           <div className="type">
+               <TypewriterComponent
+             onInit={(write)=>{
+               write
+               .typeString('hello I am Etah Wendy Ebitoh')
+               .pauseFor(5000)
+               .deleteAll()
+               .typeString('A fashion designer with')
+               .pauseFor(5000)
+               .deleteAll()
+               .typeString('great test for high quality designs')
+               .pauseFor(5000)
+               .deleteAll()
+               .typeString('With that welcome to wendy designs an a big thank you for trusting us')
+               .start()
+             }}
+             />
+           </div>
           </div>
         </div>
         <div className="home-slice">
