@@ -52,6 +52,13 @@ function Details() {
       like: increment(1),
     });
   };
+  //   const  createLike = async (id, like) => {
+  //   const productRef = doc(fireDb, `products`, id);
+  //   const newLike = {
+  //     like: like + 1,
+  //   };
+  //   await updateDoc(productRef, newLike);
+  // };
 
   const disLike = async () => {
     const dislikeRef = doc(fireDb, "products", id);
@@ -88,7 +95,7 @@ function Details() {
                 <div className="like">
                   <FcLike
                     onClick={() => {
-                      createLike();
+                      createLike(product.id, product.like);
                     }}
                   />
                   <div className="up">{product.like}</div>

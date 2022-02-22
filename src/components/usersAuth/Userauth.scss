@@ -134,6 +134,25 @@
 					display: block;
 				}
 			}
+			.google{
+				border: 3px solid rgb(255, 255, 255);
+				width: 200px;
+				border-radius: 50px;
+				font-size: 20px;
+				margin-top: 50px;
+				color: rgb(255, 255, 255);
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				color: rgb(238, 59, 59);
+				margin-left: 60%;
+				.icon{
+					color: rgb(49, 187, 72);
+				}
+				span{
+					color: gold;
+				}
+			}
 		}
 	}
 }
@@ -260,6 +279,11 @@
 				span {
 					display: block;
 				}
+			}
+			.google{
+				border: 1px solid black;
+				color: aqua;
+				margin-left: 20%;
 			}
 		}
 	}

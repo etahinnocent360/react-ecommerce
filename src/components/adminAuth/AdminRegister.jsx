@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./Admin.css"
 
 function AdminRegister() {
   return (
@@ -10,7 +11,7 @@ function AdminRegister() {
       <div className="left">
       <form className='form'>
         <h3>Register</h3>
-	<input type="text" placeholder='User name'/>
+	{/* <input type="text" placeholder='User name'/> */}
         <input type="email" placeholder='email'/>
         <input type="password" placeholder='password' />
        <div className="flex-buttons">

@@ -38,10 +38,20 @@
 		color: #5475e5;
 		
 		.red{
-			margin-top: -25px;
-			color: #9933dd;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: -30px;
+			color: #ffffff;
+			// border: 2px solid #5475e5;
+			background-color: #5475e5;
+			border-radius: 50%;
 			text-decoration: none;
 			list-style: none;
+			font-size: 12px;
+			width: 20px;
+			height: 20px;
+			margin-left: -6px;
 		}
 	}
 }

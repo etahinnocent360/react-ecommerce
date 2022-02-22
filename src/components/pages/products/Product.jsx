@@ -11,8 +11,10 @@ import {
   doc,
 } from "firebase/firestore";
 import { fireDb, fs } from "../../../firebase/firebaseconfig";
+import { UserContext } from "../../dasboard/dashboardcomponents/usercontext/UserProvider";
 const Product = () => {
   let [products, setProducts] = useContext(ProdContext);
+  const [user, setUser] = useContext(UserContext)
 
   useEffect(() => {
     const q = query(collection(fireDb, "products"));
@@ -27,7 +29,9 @@ const Product = () => {
   }, [doc]);
   console.log(products);
   const handleDelete = async (id) => {
-    await deleteDoc(doc(fireDb, "products", id));
+    await deleteDoc(doc(fireDb, "products", id), {
+      userName: user.userName,
+    });
   };
   return (
     <div className="prod">

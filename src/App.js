@@ -1,6 +1,7 @@
 /* eslint-disable no-func-assign */
 import Home from './components/pages/home/Home';
-import { BrowserRouter, pathname} from 'react-router-dom';
+import RequireAuth from './components/usersAuth/RequireAuth';
+import { BrowserRouter, useLocation, useNavigate, Navigate} from 'react-router-dom';
 import {Route, Routes,} from 'react-router'
 import './App.css';
 import UsersAuth from './components/usersAuth/UsersAuth';
@@ -21,7 +22,11 @@ import Details from './components/Details';
 import Register from './components/usersAuth/Register';
 import AdminRegister from './components/adminAuth/AdminRegister';
 import AdminLogin from './components/adminAuth/AdminLogin';
-function App({location}) {
+import { useAuth } from './components/auth/AuthProvider';
+
+function App() {
+  const {currentUser} = useAuth()
+ 
   return (
     <div className="App">
       {/* {location.pathname !=="/dashboard" && <Navbar/>} */}
@@ -40,11 +45,11 @@ function App({location}) {
      <Route path="/dashboard/products" element={<AllProds/>} />
     </Route>
     <Route path="/" element = { <Home/>} />
-    <Route path="/cart" element={<Cart/>} />
-    <Route path="/store" element={<ProductStore/>}/>
-    <Route path="/login" element = {<UsersAuth/>} />
-    <Route path="/detail/:id" element={<Details/>}/>
-    <Route path="/register" element={<Register/>}/>
+    <Route path="/cart" element={currentUser?<Cart/>:<UsersAuth/>} />
+    <Route path="/store" element={currentUser?<ProductStore/>:<UsersAuth/>}/>
+    <Route path="/detail/:id" element={currentUser?<Details/>:<UsersAuth/>}/>
+    <Route path="/register" element={currentUser?<Home path="/"/>:<Register/>}/>
+    <Route path="/login" element = {currentUser?<Home path="/"/>:<UsersAuth/>} />
     <Route path="/admin-login" element={<AdminLogin/>}/>
     <Route path="/admin-register" element={<AdminRegister/>}/>
   </Routes>

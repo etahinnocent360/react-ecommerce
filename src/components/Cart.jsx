@@ -15,31 +15,35 @@ import {
 import { FiMinus, FiPlus, FiTrash } from "react-icons/fi";
 import { CartContext } from "./pages/prodcontext/CartProvider";
 import "../components/Store.css";
+import { useAuth } from "./auth/AuthProvider";
+import UseMounted from "./pages/mount/UseMounted";
+
 
 function Cart() {
   const [carts, setCarts] = useContext(CartContext);
-  const [quantity, setQuantity] = useState();
-
+  // const [quantity, setQuantity] = useState();
+  const {currentUser} = useAuth()
+  const mounted = UseMounted()
   useEffect(() => {
-    const q = query(collection(fireDb, "cart"));
+    const q = query(collection(fireDb, `cart${mounted.current && currentUser.email}`));
     const unSub = onSnapshot(q, (QuerySnapshot) => {
       let productArray = [];
       QuerySnapshot.forEach((doc) => {
         productArray.push({ ...doc.data(), id: doc.id });
       });
-      setCarts(productArray, [{}]);
+      setCarts(productArray);
     });
     return () => unSub();
-  }, [doc]);
+  }, [doc, currentUser]);
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(fireDb, "cart", id), { merge: true });
+    await deleteDoc(doc(fireDb, `cart${mounted.current && currentUser.email}`, id), { merge: true });
   };
 
   //handle update
 
   const increaseCart = async (id, quantity) => {
-    const cartRef = doc(fireDb, "cart", id);
+    const cartRef = doc(fireDb, `cart${mounted.current && currentUser.email}`, id);
     const newQuantitty = {
       quantity: quantity + 1,
     };
@@ -47,7 +51,7 @@ function Cart() {
   };
 
   const decreaseCart = async (id, quantity) => {
-    const cartRef = doc(fireDb, "cart", id);
+    const cartRef = doc(fireDb, `cart${mounted.current && currentUser.email}`, id);
     const newQuantitty = {
       quantity: quantity - 1,
     };

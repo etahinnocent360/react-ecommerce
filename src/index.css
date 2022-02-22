@@ -5,14 +5,15 @@
   box-sizing: border-box;
   
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Cormorant+Garamond:ital@1&family=EB+Garamond:ital,wght@0,600;0,700;1,600&family=Quintessential&family=Source+Serif+Pro:wght@300;400&display=swap');
 body{
   background-color: rgb(235, 228, 241);
   overflow-x: hidden;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cookie', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'EB Garamond', serif;
 font-family: 'Quintessential', cursive;
 font-family: 'Source Serif Pro', serif;
-
 }
 ::-webkit-scrollbar {
 			width: 15px;

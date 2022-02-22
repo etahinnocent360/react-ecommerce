@@ -10,9 +10,14 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { FaThumbsDown } from "react-icons/fa";
 import TypewriterComponent from "typewriter-effect";
+import { useAuth } from "../../auth/AuthProvider";
+import {chakra} from '@chakra-ui/react'
+import UseMounted from "../mount/UseMounted";
 
 function Home() {
+  const {currentUser} = useAuth()
   const [products, setProducts] = useContext(ProdContext);
+  const mounted = UseMounted()
 
   useEffect(() => {
     const q = query(collection(fireDb, "products"));
@@ -21,11 +26,11 @@ function Home() {
       QuerySnapshot.forEach((doc) => {
         productArray.push({ ...doc.data(), id: doc.id });
       });
-      setProducts(productArray);
+      setProducts(mounted.current &&productArray);
     });
     return () => unSub();
   }, [doc]);
-
+console.log(currentUser)
   return (
     <div className="home-main">
       <div className="absolute">
@@ -74,8 +79,9 @@ function Home() {
           </div>
         </div>
         <div className="home-slice">
+          <h3 className="blog">Feature Products</h3>
           {products.slice(0, 4).map((product) => (
-            <tr key={product.id} className="flex-5">
+            <div key={product.id} className="flex-5">
               <img src={product.url} alt="nothing to show" />
               <div className="all">
                 <div className="nums">
@@ -97,7 +103,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </tr>
+            </div>
           ))}
         </div>
       </div>

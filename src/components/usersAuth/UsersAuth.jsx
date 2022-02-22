@@ -1,74 +1,103 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import './Userauth.css'
+import { useToast } from "@chakra-ui/react";
+import React, { useState, useEffect, useRef } from "react";
+import { FaGoogle } from "react-icons/fa";
+import { Link, useNavigate,useLocation } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
+import UseMounted from "../pages/mount/UseMounted";
+import "./Userauth.css";
+
 
 function UsersAuth() {
-const initialValues = {};
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formError, setFormError] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormError(validate(formValues));
-    setIsSubmit(true);
-  };
-
-  useEffect(() => {
-    if (Object.keys(formError).length === 0 && isSubmit) {
-    }
-  }, [formError]);
-
-  const validate = (values) => {
-    const errors = {};
-    const regx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.userName) {
-      errors.userName = "User name is required";
-    }
-    if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!regx.test(values.email)) {
-      errors.email = "please provide a valid email address";
-    }
-    if (!values.password) {
-      errors.password = "Password is required";
-    } else if (values.password.length < 7) {
-      errors.password = "password must be at least 7 characters long";
-    }
-else{
-}
-    return errors;
-  };
-
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSubmiting, setIsSubmiting] = useState(false);
+  const toast = useToast();
+  const { login, googleSignIn } = useAuth();
+ const mounted = UseMounted()
+ const location = useLocation()
+ const from = location.state?.from?.pathname || '/'
 
   return (
-    <div className='login'>
-      <div className="absolute">
-      </div>
-    <div className="form-div">
-      <div className="left">
-      <form className='form'>
-        <h3>Login</h3>
-        <input type="email" placeholder='email'/>
-        <input type="password" placeholder='password' />
-       <div className="flex-buttons">
-          <button>Login</button>
-        <button className="google">Login with google</button>
-       </div>
-        <div className="flex">
-          <Link to={'/register'} className='link'>Register</Link>
-        <button className='password-reset'>Forgot password?</button>
+    <div className="login">
+      <div className="absolute"></div>
+      <div className="form-div">
+        <div className="left">
+          <form
+            className="form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!email || !password) {
+                toast({
+                  description: "please provide you user infor",
+                  status: "error",
+                  duration: 5000,
+                  isClosable: true,
+                });
+              }
+              setIsSubmiting(true);
+              login(email, password)
+                .then((res) => {
+                  console.log(res);
+                  navigate('/')
+                })
+                .catch((error) => {
+                  console.log(error.message);
+                  toast({
+                    description: error.message,
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                  });
+                })
+                .finally(() => mounted.current && setIsSubmiting(false))
+            }}
+          >
+            <h3>Login</h3>
+            <input
+              type="email"
+              placeholder="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="flex-buttons">
+              <button type="submit" isLoading={isSubmiting}>
+                Login
+              </button>
+   
+            </div>
+            <div className="flex">
+              <Link to={"/register"} className="link">
+                Register
+              </Link>
+              <button className="password-reset">Forgot password?</button>
+            </div>
+          </form>
         </div>
-      </form>
+        <div className="right">
+          <h2>
+            Ready to start? <span>join now and experience more</span>
+          </h2>
+                     <button
+                className="google"
+                onClick={() =>
+                  googleSignIn()
+                    .then((user) => console.log(user))
+                    .catch((error) => console.log(error))
+                }
+              >
+                <FaGoogle className="icon"/>
+                google <span>SignIn </span>
+              </button>
+        </div>
       </div>
-      <div className="right">
-        <h2>Ready to start? <span>join now and experience more</span></h2>
-      </div>
-    </div>
     </div>
   );
 }

@@ -4,9 +4,12 @@
 				border-radius: 50%;
 				z-index: -1;
 				left: 60%;
-				top: 5%;
+				top: 50px;
 				background-color: #5476e50e;
 				position: absolute;
+			}
+			.home-main{
+				position: relative;
 			}
 
 .home {
@@ -89,17 +92,17 @@
 			// border       : 3px solid #5475e5;
 			img{
 				width: 50%;
-				margin-left: 160px;
+				margin-left: 200px;
 				height: 49.7%;
 				border       : 3px solid #5475e5;
 				z-index: 2;
 			}
 				.girl{
-					margin-top: 8%;
+					margin-top: -8%;
 					width: 18%;
-					height: 50%;
+					height: 350px;
 					position: absolute;
-					margin-left: -7%;
+					margin-left: 23%;
 				}
 				
 				.type{
@@ -115,12 +118,17 @@
 		display         : flex;
 		flex-wrap       : wrap;
 		width           : 85%;
+		position: relative;
 		justify-content : space-around;
 		margin          : 20px auto;
 		height          : 70vh;
 		padding-top     : 100px;
 		background-color: rgb(247, 243, 250);
 		// border-radius   : 10px;
+		.blog{
+			position: absolute;
+			top: 0px;
+		}
 
 		.flex-5 {
 			width           : 24%;

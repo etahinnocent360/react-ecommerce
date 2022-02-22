@@ -19,12 +19,14 @@ import { CartContext } from "./pages/prodcontext/CartProvider";
 import { FaCartPlus, FaEye, FaPlus, FaPlusSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IoIosAdd }from 'react-icons/io'
+import { useAuth } from "./auth/AuthProvider";
 
 function ProductStore() {
   const [products, setProducts] = useContext(ProdContext);
   const [carts, setCarts] = useContext(CartContext);
+  const {currentUser} = useAuth()
   useEffect(() => {
-    const q = query(collection(fireDb, "cart"));
+    const q = query(collection(fireDb, `cart${currentUser?.email}`));
     const unSub = onSnapshot(q, (QuerySnapshot) => {
       let cartArray = [];
       QuerySnapshot.forEach((doc) => {
@@ -53,7 +55,7 @@ function ProductStore() {
       }
     });
 
-    await addDoc(collection(fireDb, `cart`), item, { merge: true, item: item });
+    await addDoc(collection(fireDb, `cart${currentUser.email}`), item, { merge: true, item: item });
   };
 
   return (

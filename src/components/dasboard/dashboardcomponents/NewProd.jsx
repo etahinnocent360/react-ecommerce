@@ -8,8 +8,10 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { chakra, useToast} from "@chakra-ui/react";
 
 function NewProd() {
+  const toast = useToast()
   const [pName, setPName] = useState("");
   const [price, setPrice] = useState();
   const [stock, setStock] = useState();
