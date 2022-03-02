@@ -1,14 +1,21 @@
-import React from 'react';
-import { useLocation, Navigate, Outlet } from 'react-router-dom';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
+import { useLocation, Navigate, Routes, Route } from 'react-router-dom';
 import { useAuth } from '../auth/AuthProvider';
 
-const RequireAuth = () =>{
+const RequireAuth = ({children, ...rest}) =>{
 	const {currentUser} = useAuth()
-	const location = useLocation()
 	return(
-		currentUser?.user
-		?<Outlet/>
-		:<Navigate to='/login' state={{from: location}} replace/>
+		<Routes>
+		<Route
+		{...rest}
+		render = {() =>currentUser
+			?children
+			:<Navigate to={'/login'}/>
+		}
+		/>
+		</Routes>
 	)
+	
 }
 export default RequireAuth

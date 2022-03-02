@@ -88,9 +88,9 @@ function Navbar(props) {
           </li>
         )}
       </ul>
-      <Link to={"/dashboard/profile"} className="link">
+      {currentUser &&  <Link to={"/dashboard/profile"} className="link">
         Admin
-      </Link>
+      </Link>}
 
       {currentUser && (
         <Link to={"/cart"} className="link">

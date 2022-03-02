@@ -1,10 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { UserContext } from "./usercontext/UserProvider";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { collection, onSnapshot, query ,doc} from "firebase/firestore";
+import { fireDb } from "../../../firebase/firebaseconfig";
 
 const Users = () => {
   const [users, setUsers] = useContext(UserContext)
+   useEffect(() => {
+    const q = query(collection(fireDb, `users`));
+    const unSub = onSnapshot(q, (QuerySnapshot) => {
+      let productArray = [];
+      QuerySnapshot.forEach((doc) => {
+        productArray.push({ ...doc.data(), id: doc.id });
+      });
+      setUsers(productArray);
+    });
+    return () => unSub();
+  }, [doc]);
   console.log(users)
   return (
     <div className="users">
@@ -24,14 +38,14 @@ const Users = () => {
       <td>
            <img
                 className="admin-img"
-                src={user.profile}
-                alt="no profile to show"
+                src={user.url}
+                alt="no pic"
               />
             </td>
             <td>{user.name} </td>
             <td>{user.email} </td>
             <td>{user.number} </td>
-            <td>
+            <td className="icons">
               <AiOutlineDelete className="danger" />
               <AiOutlineEye className="view-eye" />
             </td>

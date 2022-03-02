@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.25.0",
     "chartjs": "^0.3.24",
     "firebase": "^9.6.4",
     "moment": "^2.29.1",
@@ -25,10 +26,12 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-show-more-list": "^0.5.2",
+    "react-slick": "^0.28.1",
     "react-toastify": "^8.1.0",
     "react-virtualized": "^9.22.3",
     "react-virtuoso": "^2.6.0",
     "redux": "^4.1.2",
+    "slick-carousel": "^1.8.1",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.4"
   },
@@ -55,5 +58,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8000/api/"
 }

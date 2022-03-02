@@ -38,7 +38,7 @@ function Products({
           <td className="nums">
             {stock} 
           </td>
-          <td>
+          <td className="icons-icons">
             <FaRegEdit className="icons edit" />
             <AiOutlineDelete
               onClick={() => handleDelete(product.id)}

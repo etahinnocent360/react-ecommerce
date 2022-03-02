@@ -19,11 +19,13 @@ import { ProdContext } from "./pages/prodcontext/ProductContext";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 function Details() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   let [products, setProducts] = useContext(ProdContext);
+  const toast = useToast()
   useEffect(() => {
     const q = query(collection(fireDb, "products"));
     const unSub = onSnapshot(q, (QuerySnapshot) => {
@@ -50,6 +52,20 @@ function Details() {
     const likeRef = doc(fireDb, "products", id);
     await updateDoc(likeRef, {
       like: increment(1),
+    }).then(() =>{
+        toast({
+            description: "you liked this product please refresh to see changes",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(() =>{
+        toast({
+            description: "there was an error like not added",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
     });
   };
   //   const  createLike = async (id, like) => {
@@ -64,7 +80,21 @@ function Details() {
     const dislikeRef = doc(fireDb, "products", id);
     await updateDoc(dislikeRef, {
       dislike: increment(1),
-    });
+    }).then(() =>{
+        toast({
+            description: "you disliked this product please refresh to see changes",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(() =>{
+        toast({
+            description: "there was an error dislike not added",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    });;
   };
 
   return (

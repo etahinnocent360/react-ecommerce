@@ -2,7 +2,7 @@
 import React, { useState, useContext,} from "react";
 import { ProdContext } from "../../pages/prodcontext/ProductContext";
 import { fireDb, fs } from "../../../firebase/firebaseconfig";
-import { addDoc, collection, } from "firebase/firestore";
+import { addDoc, collection, Timestamp, } from "firebase/firestore";
 import {
   getDownloadURL,
   ref,
@@ -22,6 +22,7 @@ function NewProd() {
   let [img, setImg] = useState();
   const [progress, setProgress] = useState(0);
   const [product, setProduct] = useContext(ProdContext);
+
 
   const addProd = async (e) => {
     e.preventDefault();
@@ -59,8 +60,22 @@ function NewProd() {
       desc: desc,
       quantity:quantity,
       like:like,
-      dislike:dislike
-    });
+      dislike:dislike,
+    }).then(() =>{
+        toast({
+            description: "upload successful",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(() =>{
+        toast({
+            description: "oh no some thing went wrong",
+            status:"error",
+            duration: 5000,
+            isClosable:true
+          })
+    })
         })
     );
   };
@@ -117,7 +132,7 @@ function NewProd() {
           />
           <h3>uploaded {progress} % </h3>
         </div>
-        <input type="number" value={quantity} className="qty"/>
+        <input type="number" value={quantity} onChange={setQuantity} className="qty"/>
         <button type="submit" onClick={upload}>
           Create
         </button>

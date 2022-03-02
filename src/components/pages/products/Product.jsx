@@ -12,9 +12,11 @@ import {
 } from "firebase/firestore";
 import { fireDb, fs } from "../../../firebase/firebaseconfig";
 import { UserContext } from "../../dasboard/dashboardcomponents/usercontext/UserProvider";
+import { useToast } from "@chakra-ui/react";
 const Product = () => {
   let [products, setProducts] = useContext(ProdContext);
   const [user, setUser] = useContext(UserContext)
+  const toast = useToast()
 
   useEffect(() => {
     const q = query(collection(fireDb, "products"));
@@ -31,7 +33,21 @@ const Product = () => {
   const handleDelete = async (id) => {
     await deleteDoc(doc(fireDb, "products", id), {
       userName: user.userName,
-    });
+    }).then(()=>{
+        toast({
+            description: "deleted",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(() =>{
+        toast({
+            description: "some thing went wrong",
+            status:"error",
+            duration: 5000,
+            isClosable:true
+          })
+    });;
   };
   return (
     <div className="prod">

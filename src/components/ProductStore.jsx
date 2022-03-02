@@ -20,11 +20,13 @@ import { FaCartPlus, FaEye, FaPlus, FaPlusSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IoIosAdd }from 'react-icons/io'
 import { useAuth } from "./auth/AuthProvider";
+import { useToast } from "@chakra-ui/react";
 
 function ProductStore() {
   const [products, setProducts] = useContext(ProdContext);
   const [carts, setCarts] = useContext(CartContext);
   const {currentUser} = useAuth()
+  const toast = useToast()
   useEffect(() => {
     const q = query(collection(fireDb, `cart${currentUser?.email}`));
     const unSub = onSnapshot(q, (QuerySnapshot) => {
@@ -55,7 +57,22 @@ function ProductStore() {
       }
     });
 
-    await addDoc(collection(fireDb, `cart${currentUser.email}`), item, { merge: true, item: item });
+    await setDoc(doc(fireDb, `cart${currentUser.email}`, `${item.id}`), item, { merge: true, item: item })
+    .then(()=>{
+         toast({
+            description: "product successfully added to cart",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(error =>{
+         toast({
+            description: error.message,
+            status:"error",
+            duration: 5000,
+            isClosable:true
+          })
+    })
   };
 
   return (

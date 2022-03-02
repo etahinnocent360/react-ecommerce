@@ -100,9 +100,7 @@
 .login .form-div .left .form .flex button {
   border: none;
   font-size: 18px;
-  color: #5475e5;
   background-color: #f7f3fa;
-  border-bottom: 2px solid #5475e5;
   cursor: pointer;
 }
 
@@ -248,7 +246,6 @@
   font-size: 18px;
   color: #5475e5;
   background-color: #f7f3fa;
-  border-bottom: 2px solid #5475e5;
   cursor: pointer;
 }
 

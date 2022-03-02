@@ -36,4 +36,6 @@ font-family: 'Source Serif Pro', serif;
 			background: #5475e5;
 		}
 
-		
+		.only-admin{
+			padding-top: 400px;
+		}

@@ -13,11 +13,17 @@ import TypewriterComponent from "typewriter-effect";
 import { useAuth } from "../../auth/AuthProvider";
 import {chakra} from '@chakra-ui/react'
 import UseMounted from "../mount/UseMounted";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import {UserContext} from '../../dasboard/dashboardcomponents/usercontext/UserProvider'
 function Home() {
   const {currentUser} = useAuth()
   const [products, setProducts] = useContext(ProdContext);
   const mounted = UseMounted()
+  const [user, setUser] = useContext(UserContext)
+
+
 
   useEffect(() => {
     const q = query(collection(fireDb, "products"));
@@ -31,6 +37,14 @@ function Home() {
     return () => unSub();
   }, [doc]);
 console.log(currentUser)
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    buttons:true,
+    slidesToShow: 3,
+    slidesToScroll: 1
+  };
   return (
     <div className="home-main">
       <div className="absolute">
@@ -106,6 +120,26 @@ console.log(currentUser)
             </div>
           ))}
         </div>
+         <Slider {...settings}>
+      <div>
+        <img src="img/boy3.png" alt="" />
+      </div>
+      <div>
+        <img src="img/boy3.png" alt="" />
+      </div>
+      <div>
+        <img src="img/boy3.png" alt="" />
+      </div>
+      <div>
+       <img src="img/boy3.png" alt="" />
+      </div>
+      <div>
+        <img src="img/boy3.png" alt="" />
+      </div>
+      <div>
+        <img src="img/boy3.png" alt="" />
+      </div>
+    </Slider>
       </div>
     </div>
   );

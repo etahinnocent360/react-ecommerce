@@ -150,11 +150,15 @@
   background-color: white;
 }
 
+.container .dashboard .render .users tbody {
+  width: 100%;
+}
+
 .container .dashboard .render .users tr {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 3px solid #ebebeb;
 }
 
@@ -164,11 +168,19 @@
   border-radius: 50%;
 }
 
+.container .dashboard .render .users tr .icons {
+  display: flex;
+  align-items: center;
+}
+
 .container .dashboard .render .users tr td {
   margin-top: 10px;
-  line-height: 4;
   height: 80px;
   color: #2c2c2c;
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: left;
 }
 
 .container .dashboard .render .users tr td .danger {
@@ -322,6 +334,11 @@
   padding-left: 0;
   justify-content: space-between;
   background-color: white;
+  margin-top: 3px;
+}
+
+.container .dashboard .prod .product-cart .cart .icons-icons {
+  display: flex;
 }
 
 .container .dashboard .prod .product-cart .cart .icons {

@@ -157,12 +157,14 @@
 					overflow-x      : hidden;
 					background-color: white;
 				}
-				
+				tbody{
+					width: 100%;
+				}
 				tr {
 					display        : flex;
 					width          : 100%;
 					align-items    : center;
-					justify-content: space-around;
+					justify-content: space-between;
 					border-bottom  : 3px solid rgb(235, 235, 235);
 
 					img {
@@ -170,12 +172,19 @@
 						width        : 40px;
 						border-radius: 50%;
 					}
+					.icons{
+						display: flex;
+						align-items: center;
+					}
 
 					td {
 						margin-top : 10px;
-						line-height: 4;
 						height     : 80px;
 						color      : rgb(44, 44, 44);
+						display: flex;
+						width: 100px;
+						align-items: center;
+						justify-content: left;
 
 
 						.danger {
@@ -339,8 +348,10 @@
 					padding-left    : 0;
 					justify-content : space-between;
 					background-color: white;
-					// margin-top      : 5px;
-
+					margin-top      : 3px;
+					.icons-icons{
+						display: flex;
+					}
 
 					.icons {
 						padding-left: 10%;

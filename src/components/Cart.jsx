@@ -17,6 +17,7 @@ import { CartContext } from "./pages/prodcontext/CartProvider";
 import "../components/Store.css";
 import { useAuth } from "./auth/AuthProvider";
 import UseMounted from "./pages/mount/UseMounted";
+import { useToast } from "@chakra-ui/react";
 
 
 function Cart() {
@@ -24,8 +25,9 @@ function Cart() {
   // const [quantity, setQuantity] = useState();
   const {currentUser} = useAuth()
   const mounted = UseMounted()
+  const toast =useToast()
   useEffect(() => {
-    const q = query(collection(fireDb, `cart${mounted.current && currentUser.email}`));
+    const q = query(collection(fireDb, `cart${mounted.current && currentUser?.email}`));
     const unSub = onSnapshot(q, (QuerySnapshot) => {
       let productArray = [];
       QuerySnapshot.forEach((doc) => {
@@ -37,13 +39,28 @@ function Cart() {
   }, [doc, currentUser]);
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(fireDb, `cart${mounted.current && currentUser.email}`, id), { merge: true });
+    await deleteDoc(doc(fireDb, `cart${mounted.current && currentUser?.email}`, id), { merge: true })
+    .then(()=>{
+        toast({
+            description: "deleted",
+            status:"success",
+            duration: 5000,
+            isClosable:true
+          })
+    }).catch(() =>{
+        toast({
+            description: "some thing went wrong",
+            status:"error",
+            duration: 5000,
+            isClosable:true
+          })
+    });
   };
 
   //handle update
 
   const increaseCart = async (id, quantity) => {
-    const cartRef = doc(fireDb, `cart${mounted.current && currentUser.email}`, id);
+    const cartRef = doc(fireDb, `cart${mounted.current && currentUser?.email}`, id);
     const newQuantitty = {
       quantity: quantity + 1,
     };
@@ -51,7 +68,7 @@ function Cart() {
   };
 
   const decreaseCart = async (id, quantity) => {
-    const cartRef = doc(fireDb, `cart${mounted.current && currentUser.email}`, id);
+    const cartRef = doc(fireDb, `cart${mounted.current && currentUser?.email}`, id);
     const newQuantitty = {
       quantity: quantity - 1,
     };
