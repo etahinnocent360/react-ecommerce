@@ -36,7 +36,7 @@ function Home() {
     });
     return () => unSub();
   }, [doc]);
-console.log(currentUser)
+// console.log(currentUser)
   var settings = {
     dots: true,
     infinite: true,

@@ -57,21 +57,22 @@ function ProductStore() {
       }
     });
 
-    await setDoc(doc(fireDb, `cart${currentUser.email}`, `${item.id}`), item, { merge: true, item: item })
-    .then(()=>{
+    await setDoc(doc(fireDb, `cart${currentUser.email}`, `${item.id}`), item, { merge: true, item: item,})
+    .then((carti)=>{
          toast({
             description: "product successfully added to cart",
             status:"success",
             duration: 5000,
             isClosable:true
           })
-    }).catch(error =>{
-         toast({
-            description: error.message,
-            status:"error",
-            duration: 5000,
-            isClosable:true
-          })
+
+    }).catch((carti, error) =>{
+                toast({
+                    description: error.message,
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true
+                })
     })
   };
 

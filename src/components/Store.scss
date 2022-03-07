@@ -19,13 +19,13 @@
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		background-color: #a7bcff;
+		background-color: #7891e2;
 		border-radius   : 10px;
 	}
 
 	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
-		background-color: #98adf0;
+		background-color: #7891e2;
 	}
 
 	.prodGalary {
@@ -159,7 +159,7 @@
 		.cart:hover {
 			.buttons {
 				display           : block;
-				margin-top        : 0px;
+				margin-top        : 0;
 			}
 		}
 	}
@@ -172,7 +172,7 @@
 		margin-top      : 70px;
 
 		h4 {
-			color: black;
+			color: gray;
 		}
 
 		.price {
@@ -231,7 +231,7 @@
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		background-color: #7891e2;
+		background-color: #ffffff;
 		border-radius   : 10px;
 	}
 

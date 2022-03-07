@@ -52,9 +52,11 @@
 
 .container .dashboard .sidebar ul li {
   list-style: none;
+  align-items: center;
   padding-top: 30px;
   text-decoration: none;
   font-weight: 700;
+  display: flex;
 }
 
 .container .dashboard .sidebar ul li .icons {
@@ -62,7 +64,7 @@
 }
 
 .container .dashboard .sidebar ul li .item {
-  position: absolute;
+  display: flex;
   text-decoration: none;
   margin-left: 5px;
   color: #505050;

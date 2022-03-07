@@ -20,12 +20,12 @@
 }
 
 .store ::-webkit-scrollbar-thumb {
-  background-color: #a7bcff;
+  background-color: #7891e2;
   border-radius: 10px;
 }
 
 .store ::-webkit-scrollbar-thumb:hover {
-  background-color: #98adf0;
+  background-color: #7891e2;
 }
 
 .store .prodGalary {

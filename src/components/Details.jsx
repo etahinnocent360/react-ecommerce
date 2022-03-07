@@ -48,11 +48,17 @@ function Details() {
     });
   }, [id]);
 
-  const createLike = async () => {
+  const createLike = async (like) => {
     const likeRef = doc(fireDb, "products", id);
     await updateDoc(likeRef, {
       like: increment(1),
     }).then(() =>{
+
+        if (like < 1e3) return like;
+        if (like >= 1e3 && like < 1e6) return +(like / 1e3).toFixed(2) + "K+";
+        if (like >= 1e6 && like < 1e9) return +(like / 1e6).toFixed(2) + "M+";
+        if (like >= 1e9 && like < 1e12) return +(like / 1e9).toFixed(2) + "B+";
+        if (like >= 1e12) return +(like / 1e12).toFixed(2) + "T+"
         toast({
             description: "you liked this product please refresh to see changes",
             status:"success",

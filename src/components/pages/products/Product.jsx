@@ -32,7 +32,7 @@ const Product = () => {
   console.log(products);
   const handleDelete = async (id) => {
     await deleteDoc(doc(fireDb, "products", id), {
-      userName: user.userName,
+      // userName: user.userName,
     }).then(()=>{
         toast({
             description: "deleted",
@@ -47,7 +47,7 @@ const Product = () => {
             duration: 5000,
             isClosable:true
           })
-    });;
+    });
   };
   return (
     <div className="prod">

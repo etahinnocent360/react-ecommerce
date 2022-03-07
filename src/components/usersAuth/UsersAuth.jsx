@@ -39,13 +39,13 @@ function UsersAuth() {
               setIsSubmiting(true);
               login(email, password)
                 .then((res) => {
-                  navigate(from, {replace:true})
                       toast({
                     description: "login successful",
                     status: "success",
                     duration: 5000,
                     isClosable: true,
                   });
+                  navigate(from, {replace:true})
                 })
                 .catch((error) => {
                   console.log(error.message);
@@ -56,7 +56,7 @@ function UsersAuth() {
                     isClosable: true,
                   });
                 })
-                .finally(() => mounted.current && setIsSubmiting(false))
+                .finally(() => setIsSubmiting(false))
             }}
           >
             <h3>Login</h3>
@@ -101,6 +101,7 @@ function UsersAuth() {
                     duration: 5000,
                     isClosable: true,
                   });
+                  navigate(from, {replace:true})
                     })
                     .catch((error) => {console.log(error)
                       toast({

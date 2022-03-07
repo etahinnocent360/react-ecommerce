@@ -8,11 +8,12 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
-import { chakra, useToast} from "@chakra-ui/react";
+import { chakra, useToast, Progress} from "@chakra-ui/react";
 
 function NewProd() {
   const toast = useToast()
   const [pName, setPName] = useState("");
+
   const [price, setPrice] = useState();
   const [stock, setStock] = useState();
   const [desc, setDesc] = useState("");
@@ -22,7 +23,6 @@ function NewProd() {
   let [img, setImg] = useState();
   const [progress, setProgress] = useState(0);
   const [product, setProduct] = useContext(ProdContext);
-
 
   const addProd = async (e) => {
     e.preventDefault();
@@ -120,9 +120,6 @@ function NewProd() {
           />
         </div>
         <div className="label">
-          <label for="file">
-            <span></span>
-          </label>
           <input
             type="file"
             placeholder="product name"
@@ -131,6 +128,7 @@ function NewProd() {
             className="btn-3"
           />
           <h3>uploaded {progress} % </h3>
+          <Progress hasStripe value={64} ></Progress>
         </div>
         <input type="number" value={quantity} onChange={setQuantity} className="qty"/>
         <button type="submit" onClick={upload}>

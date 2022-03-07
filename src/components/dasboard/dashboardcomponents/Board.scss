@@ -52,17 +52,20 @@
 				li {
 					// position: relative;
 					list-style     : none;
+					align-items: center;
 					padding-top    : 30px;
 					text-decoration: none;
 					font-weight    : 700;
+					display: flex;
 
 					.icons {
 						color: #5475e5;
+						// display: flex;
 					}
 
 					.item {
-						position       : absolute;
-						// display: flex;
+						// position       : absolute;
+						display: flex;
 						text-decoration: none;
 						margin-left    : 5px;
 						color          : rgb(80, 80, 80);
@@ -216,7 +219,7 @@
 				img {
 					height       : 400px;
 					width        : 400px;
-					border-radius: 50%;
+					//border-radius: 0px;
 				}
 
 				.infor {

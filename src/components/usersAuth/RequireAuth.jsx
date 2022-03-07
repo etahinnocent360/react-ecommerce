@@ -5,13 +5,14 @@ import { useAuth } from '../auth/AuthProvider';
 
 const RequireAuth = ({children, ...rest}) =>{
 	const {currentUser} = useAuth()
+	const location = useLocation()
 	return(
 		<Routes>
 		<Route
 		{...rest}
 		render = {() =>currentUser
 			?children
-			:<Navigate to={'/login'}/>
+			:<Navigate to={'/login'} replace state={{from:location.pathname}} />
 		}
 		/>
 		</Routes>

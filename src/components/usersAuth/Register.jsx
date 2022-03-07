@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import './Userauth.css'
 import {chakra, useToast, isLoading} from '@chakra-ui/react'
 import { auth } from '../../firebase/firebaseconfig';
@@ -15,6 +15,8 @@ function Register() {
   const toast = useToast()
  const {register} = useAuth()
  const mounted = UseMounted()
+  const location = useLocation()
+ const from =location.state?.from?.pathname || '/'
   return (
      <div className='register'>
       <div className="absolute">
@@ -30,6 +32,7 @@ function Register() {
             duration: 5000,
             isClosable:true
           })
+          navigate(from, {replace:true})
         }
         setIsSubmiting(true)
         register(email, password)

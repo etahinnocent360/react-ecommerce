@@ -29,6 +29,7 @@ import { useContext, useEffect } from 'react';
 import { collection, doc, onSnapshot, query } from 'firebase/firestore';
 import { fireDb } from './firebase/firebaseconfig';
 import { UserContext } from './components/dasboard/dashboardcomponents/usercontext/UserProvider';
+// import UsersSetting from "./components/pages/UsersSetting/UsersSetting";
 
 function App() {
   const {currentUser} = useAuth()
@@ -45,7 +46,6 @@ function App() {
     });
     return () => unSub();
   }, [doc]);
-console.log(user[0])
 
   return (
     <div className="App">
@@ -53,7 +53,7 @@ console.log(user[0])
   {/* <Navbar/> */}
    {location.path !=="/dashboard/" && <Navbar/>}
   <Routes>
-    <Route exact path="/dashboard/" element={currentUser?<CreateProducts/>:<NotAdmin/> ||!currentUser?<UsersAuth/>:<NotAdmin/> }>
+    <Route exact path="/dashboard/" element={currentUser?<CreateProducts />:<NotAdmin/> ||!currentUser?<UsersAuth/>:<NotAdmin/> }>
      <Route path="/dashboard/settings" element={<Settings/>} />
      <Route path="/dashboard/users" element={<Users/>} />
      <Route path="/dashboard/sales" element={<SalesStats/>} />
@@ -65,17 +65,18 @@ console.log(user[0])
      <Route path="/dashboard/products" element={<AllProds/>} />
     </Route>
     <Route  element={<RequireAuth/>}>
-      
+
     </Route>
     <Route path="/" element = { <Home/>} />
     <Route  path="/adminonly" element={<NotAdmin/>}/>
     <Route path="/cart" element={currentUser?<Cart/>:<UsersAuth/>} />
-    <Route path="/store" element={currentUser?<ProductStore/>:<UsersAuth/>}/>
+    <Route path="/store" element={<ProductStore/>}/>
     <Route path="/detail/:id" element={currentUser?<Details/>:<UsersAuth/>}/>
     <Route path="/register" element={currentUser?<Home/>:<Register/>}/>
     <Route path="/login" element = {currentUser?<Home/>:<UsersAuth/>} />
     <Route path="/forgot-password" element={currentUser?<Home/>:<ForggotPassword/>}/>
     <Route path="/reset-password" element={currentUser?<Home/>:<ResetPassword/>}/>
+      {/*<Route path="/profile" element={<UsersSetting/>}/>*/}
   </Routes>
   </BrowserRouter>
     </div>

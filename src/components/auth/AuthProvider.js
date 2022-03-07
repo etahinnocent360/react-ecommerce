@@ -36,7 +36,7 @@ export default  function AuthProvider({children}){
 	.then((cred) =>{
 			if(cred.user.email || !isAdmin){
                       setDoc( doc(fireDb, `users/${cred.user.uid}`),{
-			id:cred.user.uid,
+			uid:cred.user.uid,
 			name:cred.user.displayName,
 			email:cred.user.email,
 			url:cred.user.photoURL,
@@ -68,7 +68,7 @@ export default  function AuthProvider({children}){
 		.then((cred, email) =>{
 			if(cred.user.email || !isAdmin){
                       setDoc( doc(fireDb, `users/${cred.user.uid}`),{
-			id:cred.user.uid,
+			uid:cred.user.uid,
 			name:cred.user.displayName,
 			email:cred.user.email,
 			url:cred.user.photoURL,
