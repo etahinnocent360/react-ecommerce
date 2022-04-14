@@ -91,16 +91,7 @@ function Cart() {
         }
     ).then(res => {
       console.log(res.data)
-      // if(_id){
         window.location.replace(`/payunit/${res.data._id}`)
-      // } else {
-      //   toast({
-      //     description: 'please check your net and try again',
-      //     status: "error",
-      //     duration: 5000,
-      //     isClosable: true
-      //   })
-      // }
     }).catch(error => {
       toast({
         description: error.message,
