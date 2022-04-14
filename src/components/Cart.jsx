@@ -85,7 +85,7 @@ function Cart() {
 
   const initiate = async (e, param) => {
     e.preventDefault()
-    return await axios.post('/initialize/', {
+    const res = await axios.post('/initialize/', {
           total_amount: total_amount,
           currency:currency
         }
@@ -100,6 +100,7 @@ function Cart() {
         isClosable: true
       })
     })
+    return res.fetch('/initialize')
   }
 
   return (

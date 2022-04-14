@@ -46,9 +46,10 @@ function Payunit() {
                 setGetPsp(res.data.data)
             });
             // setGetPsp(res)
+            return res.fetch(`/getpsp/${id}`)
         };
         getpsps()
-        return mounted.current =false
+
     }, [id]);
     const handlePay = async (e) => {
         e.preventDefault()
@@ -81,9 +82,8 @@ function Payunit() {
                 isClosable: true
             })
         })
-        return res
+        return res.fetch(`/payment/${id}`)
     }
-
     function total() {
         let x = 0;
         carts.map((i) => {
