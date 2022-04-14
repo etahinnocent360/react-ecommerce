@@ -42,18 +42,18 @@ function Payunit() {
     useEffect(() => {
         mounted.current = true
         const getpsps = async () => {
-            const res = await axios.get(`/getpsp/${id}`).then(res => {
+            const res = await axios.get(`http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io/getpsp/${id}`).then(res => {
                 setGetPsp(res.data.data)
             });
             // setGetPsp(res)
-            return res.fetch(`/getpsp/${id}`)
+            return res
         };
         getpsps()
 
     }, [id]);
     const handlePay = async (e) => {
         e.preventDefault()
-        const res = await axios.post(`/payment/${id}`, {
+        const res = await axios.post(`http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io/payment/${id}`, {
             phone_number: phone_number,
             amount: amount,
             gateway: provider_short_tag,
@@ -67,7 +67,7 @@ function Payunit() {
             })
             // await window.location.replace('/')
             console.log(res.data)
-          await  axios.get(`/getstatus/${res.data._id}`).then(async res => {
+          await  axios.get(`http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io/getstatus/${res.data._id}`).then(async res => {
                 setStatus(res.data.data)
                 console.log(status?.callback)
                 await window.location.replace(`${res.data.data?.callback}`)
@@ -82,7 +82,7 @@ function Payunit() {
                 isClosable: true
             })
         })
-        return res.fetch(`/payment/${id}`)
+        return res
     }
     function total() {
         let x = 0;

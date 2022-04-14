@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "chartjs": "^0.3.24",
+    "dotenv": "^16.0.0",
     "firebase": "^9.6.4",
     "moment": "^2.29.1",
     "pure-react-carousel": "^1.28.1",
@@ -62,6 +63,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io"
+  }
 }
