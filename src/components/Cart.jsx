@@ -85,7 +85,7 @@ function Cart() {
 
   const initiate = async (e, param) => {
     e.preventDefault()
-    const res = await axios.post('/initialize/', {
+    const res = await axios.post('/initialize', {
           total_amount: total_amount,
           currency:currency
         }
