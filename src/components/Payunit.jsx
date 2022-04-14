@@ -42,7 +42,7 @@ function Payunit() {
     useEffect(() => {
         mounted.current = true
         const getpsps = async () => {
-            const res = await axios.get(`${process.env.baseUrl}/getpsp/${id}`).then(res => {
+            const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/getpsp/${id}`).then(res => {
                 setGetPsp(res.data.data)
             });
             // setGetPsp(res)
@@ -53,7 +53,7 @@ function Payunit() {
     }, [id]);
     const handlePay = async (e) => {
         e.preventDefault()
-        const res = await axios.post(`${process.env.baseUrl}/payment/${id}`, {
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/payment/${id}`, {
             phone_number: phone_number,
             amount: amount,
             gateway: provider_short_tag,
@@ -67,7 +67,7 @@ function Payunit() {
             })
             // await window.location.replace('/')
             console.log(res.data)
-          await  axios.get(`${process.env.baseUrl}/getstatus/${res.data._id}`).then(async res => {
+          await  axios.get(`${process.env.REACT_APP_BASE_URL}/getstatus/${res.data._id}`).then(async res => {
                 setStatus(res.data.data)
                 console.log(status?.callback)
                 await window.location.replace(`${res.data.data?.callback}`)

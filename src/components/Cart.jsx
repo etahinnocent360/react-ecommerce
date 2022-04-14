@@ -85,7 +85,7 @@ function Cart() {
 
   const initiate = async (e, param) => {
     e.preventDefault()
-    const res = await axios.post(`${process.env.baseUrl}/initialize`, {
+    const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/initialize`, {
           total_amount: total_amount,
           currency:currency
         }
