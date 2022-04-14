@@ -85,7 +85,7 @@ function Cart() {
 
   const initiate = async (e, param) => {
     e.preventDefault()
-    const res = await axios.post(`http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io/initialize`, {
+    const res = await axios.post(`https://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io/initialize`, {
           total_amount: total_amount,
           currency:currency
         }
