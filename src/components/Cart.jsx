@@ -182,7 +182,6 @@ function Cart() {
             </select>
             <h4 className="promo">Promo</h4>
             <Input variant={'outlined'} type="number" placeholder="promo code here"/>
-            <Button variant={'contained'} color={"primary"} className="apply">Apply</Button>
             <hr/>
             <div className="total-flex">
               {/*<h4>Total cost</h4>*/}
