@@ -57,7 +57,7 @@ const Users = () => {
             {users.map(user =>(
               <tr key={user.id} >
       <td>
-          {user.url?<img className='admin-img' src={user.url} alt="no profile to show" />:
+          {user.url?<img className='admin-img' src={user?.url} alt="no profile to show" />:
               <img className='admin-img' src="/img/admin.png" alt="no profile to show" />
           }
             </td>

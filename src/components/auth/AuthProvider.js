@@ -4,6 +4,7 @@ import { auth, fireDb } from '../../firebase/firebaseconfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, confirmPasswordReset} from 'firebase/auth';
 import { addDoc, collection,doc,setDoc, updateDoc } from 'firebase/firestore';
 import { isAdmin } from '@firebase/util';
+import UseMounted from "../pages/mount/UseMounted";
 
  const UserAuthContext = createContext({
 	 currentUser:null,
@@ -16,8 +17,6 @@ import { isAdmin } from '@firebase/util';
 	
  })
  export const useAuth = () =>useContext(UserAuthContext)
-
-
 export default  function AuthProvider({children}){
 	const [currentUser, setCurrentUser] = useState(null)
 	const [isAdmin, setIsAdmin] = useState(Boolean)
@@ -29,7 +28,7 @@ export default  function AuthProvider({children}){
 			unSubscript()
 		}
 	// eslint-disable-next-line no-undef
-	},[])
+	},[currentUser])
 	//register user
 	function register ( email, password,){
 		return createUserWithEmailAndPassword(auth, email, password)
@@ -91,7 +90,7 @@ export default  function AuthProvider({children}){
 	//forgot password
 	function forgotPassword(email){
 		return sendPasswordResetEmail(auth, email, {
-			url:'http://localhost:3000/login'
+			url:'https://fancy-sable-a17ef4.netlify.app/login'
 		})
 	}
 	//reset password

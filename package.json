@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.8.3",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.6.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -58,5 +62,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://app-776b5639-9efc-46ed-8c07-f790aef8d402.cleverapps.io"
 }

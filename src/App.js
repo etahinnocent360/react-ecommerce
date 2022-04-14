@@ -29,6 +29,7 @@ import { useContext, useEffect } from 'react';
 import { collection, doc, onSnapshot, query } from 'firebase/firestore';
 import { fireDb } from './firebase/firebaseconfig';
 import { UserContext } from './components/dasboard/dashboardcomponents/usercontext/UserProvider';
+import Payunit from "./components/Payunit";
 // import UsersSetting from "./components/pages/UsersSetting/UsersSetting";
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
     <Route  path="/adminonly" element={<NotAdmin/>}/>
     <Route path="/cart" element={currentUser?<Cart/>:<UsersAuth/>} />
     <Route path="/store" element={<ProductStore/>}/>
+      <Route path="/payunit/:id" element={<Payunit/>}/>
     <Route path="/detail/:id" element={currentUser?<Details/>:<UsersAuth/>}/>
     <Route path="/register" element={currentUser?<Home/>:<Register/>}/>
     <Route path="/login" element = {currentUser?<Home/>:<UsersAuth/>} />
