@@ -100,7 +100,6 @@ function Cart() {
         isClosable: true
       })
     })
-    return res.fetch('/initialize')
   }
 
   return (
