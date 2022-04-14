@@ -90,7 +90,7 @@ export default  function AuthProvider({children}){
 	//forgot password
 	function forgotPassword(email){
 		return sendPasswordResetEmail(auth, email, {
-			url:'https://fancy-sable-a17ef4.netlify.app/login'
+			url:'https://react-ecommerce2-eta.vercel.app/login'
 		})
 	}
 	//reset password
